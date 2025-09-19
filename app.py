@@ -75,7 +75,7 @@ def customer_order():
         total_order.append('Mustard')
         total_order_prices.append(beef_burgers['Mustard'])
     elif order == 11:
-        total_order.append('__CHECKOUT__')  # Special marker to signal checkout
+        total_order.append('__CHECKOUT__')  # Marker to signal checkout
     else:
         print('Invalid selection. Please try again.')
         customer_order()
