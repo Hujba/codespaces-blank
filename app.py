@@ -38,8 +38,6 @@ def menu():
     print(f"10. Mustard for ${beef_burgers['Mustard']}")
     print('11. Go to checkout.')
 
-
-
 # Function to take the customer's order and update order lists
 def customer_order():
     orderstr = input('Select what you would like to order: ')
@@ -80,7 +78,6 @@ def customer_order():
         print('Invalid selection. Please try again.')
         customer_order()
 
-
 # Function to display the order summary and total price
 def check_out():
     print('\n--- Your Order Summary ---')
@@ -89,14 +86,16 @@ def check_out():
     if not order_items:
         print('No items ordered.')
         return
-    print('Items in your order:')
-    for item in order_items:
-        print(f'- {item} (${beef_burgers[item]:.2f})')
+    for item, price in zip(order_items, total_order_prices):
+            print(f'- {item} (${price:.2f})')
     total = sum(total_order_prices)
     print(f'Total price: ${total:.2f}')
+    if "Cheeseburger meal" in total_order:
+        total_order.append("Cheeseburger meal")
+        total_order_prices.append(meal_deals["Cheeseburger meal"])
 
 print('Welcome to the Beef Burger Co. menu!')
-meal_deal = input("Would you like a meal deal? (yes/no)")
+meal_deal = input("Would you like a meal deal? (yes/no) ")
 if meal_deal == 'yes':
     print('--- Meal Deals ---')
     for deal, price in meal_deals.items():
